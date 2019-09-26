@@ -1,0 +1,192 @@
+@charset "utf-8";
+
+// Import a Google Font
+@import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
+
+// Set your brand colors
+$peach: #FEECE7;
+$blue: #99E0FF;
+$yellow: #FFFBE1;
+$green: #EBF5E2;
+$grey: #F5F7FB;
+$pink: #FFF0FC;
+// $blue: #66AECC
+// $lighter-blue: #AAC8D5
+// $another-blue: #669DE3
+// $sky-blue: #99E0FF !!!
+// $this-is-a-blue: #6CB8D9
+
+// $peach: #FEE7DA;
+// $pink: #FDECE7;
+
+// Update Bulma's global variables
+$family-sans-serif: 'Nunito', sans-serif;
+$grey-dark: $blue;
+$grey-light: $green;
+$primary: $yellow;
+$link: #2A2E45;
+$widescreen-enabled: false;
+$fullhd-enabled: false;
+
+// Update some of Bulma's component variables
+$body-background-color: $grey;
+$control-border-width: 2px;
+$input-border-color: transparent;
+$input-shadow: none;
+
+// Import only what you need from Bulma
+@import '../node_modules/bulma/sass/utilities/_all.sass';
+@import '../node_modules/bulma/sass/base/_all.sass';
+@import '../node_modules/bulma/sass/elements/button.sass';
+@import '../node_modules/bulma/sass/elements/container.sass';
+@import '../node_modules/bulma/sass/elements/form.sass';
+@import '../node_modules/bulma/sass/elements/title.sass';
+@import '../node_modules/bulma/sass/components/navbar.sass';
+@import '../node_modules/bulma/sass/layout/hero.sass';
+@import '../node_modules/bulma/sass/layout/section.sass';
+
+
+.login-container {
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    background-color: $pink;
+    justify-content: center;
+  }
+
+  .login-input {
+    width: 50%;
+    display: block;
+  }
+
+  .logo {
+    justify-content: center;
+    text-align: center;
+    display: block;
+  }
+
+  .searchbar-container {
+    display: flex;
+    align-items: center;
+    padding: 20px 0 20px 0;
+    justify-content: center;
+  }
+
+  .searchbar input {
+    height: 40px;
+    width: 400px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
+
+  .searchbar a {
+    height: 40px;
+    width: 100px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+  }
+
+  .create-event-modal-container {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    justify-content: center;
+  }
+
+  .is-large {
+    background-image: url('https://images.unsplash.com/photo-1506356719850-7079b0a3ce75?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .create-event-button {
+    background-color: lightgreen;
+    padding: 10px 10px 35px 10px;
+    color: white;
+    border-color: lightgreen;
+  }
+
+  .filter-hero-body {
+    background-color: white;
+  }
+
+  .hero.is-info .title {
+    color: #2A2E45;
+  }
+
+  .title {
+    text-align: center;
+  }
+
+  .filter-container {
+    display: flex;
+    align-items: center;
+    padding: 20px 0 20px 0;
+    justify-content: center;
+  }
+
+  .category {
+    border-radius: 2px;
+    width: min-content;
+  }
+
+  .category .box {
+    background-color: $blue;
+  }
+  
+  .events-container {
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .event-card {
+    margin-bottom: 10%;
+    width: 50vw;
+  }
+  
+  .event-card-image img {
+    border-radius: 1% 1% 0 0;
+  }
+  
+  .event-card-content {
+    background-color: white;
+    padding: 20px;
+    padding-left: 30px;
+    border-radius: 0 0 1% 1%;
+  }
+  
+  .event-card-content h3 {
+    margin-bottom: 0px;
+    border: blue;
+  }
+  
+  .event-card-content p {
+    margin-bottom: 0px;
+  }
+  
+  // div.column.event-card-content-left {
+  //   border-width: 9px;
+  //   border-style: solid;
+  //   border-color: orange;
+  // }
+  
+  .event-card-user-icon p {
+    text-align: center;
+    border-width: 1px;
+    border-style: dashed;
+    border-color: orange;
+    border-radius: 10%;
+    display: inline-block;
+    padding: 10px 0;
+  }
+  
+  /* Event Details */
+  .styling-box {
+    border: 1px solid grey;
+    padding: 60px;
+  }
+  
+  .event-detail-description {
+    padding: 50px;
+  }
