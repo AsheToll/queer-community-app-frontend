@@ -1,6 +1,79 @@
+import {authHeader} from '../_helpers/auth-header.js'
+
+///////////
+// USERS //
+///////////
+export function fetchUsers() {
+    return dispatch => {
+        return fetch('http://localhost:4000/users', {
+            headers: authHeader()
+        })
+        .then(resp => resp.json())
+        .then(users => {
+            dispatch(fetchUsersSucess(users))
+        })
+    }
+}
+
+export const FETCH_USERS_SUCCESS = 'FETCH_USERS_SUCCESS'
+
+export function fetchUsersSucess(users) {
+    return {
+        type: FETCH_USERS_SUCCESS,
+        users
+    }
+}
+
+export function registerUser(user) {
+    return dispatch => {
+        return fetch('http://localhost:4000/users/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+    }
+}
+
+export const REGISTER_USER_SUCCESS = 'REGISTER_USER_SUCCESS'
+
+export function login(username, password) {
+    return dispatch => {
+        return fetch('http://localhost:4000/users/authenticate', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify(username, password)
+        })
+        .then(resp => resp.json())
+        .then(user => {
+            debugger
+            localStorage.setItem('user', JSON.stringify(user))
+
+            return user
+        })
+    }
+}
+
+export const LOGIN_USER_SUCCESS = 'LOGIN_USER_SUCCESS'
+
+export function logout() {
+    localStorage.removeItem('user')
+}
+
+export const LOGOUT_USER_SUCCESS = 'LOGOUT_USER_SUCCESS'
+
+////////////
+// EVENTS //
+////////////
 export function fetchEvents() {
     return dispatch => {
-        return fetch('http://localhost:4000/events')
+        return fetch('http://localhost:4000/events', {
+            headers: authHeader()
+        })
         .then(resp => resp.json())
         .then(events => {
             dispatch(fetchEventsSuccess(events))
@@ -16,7 +89,32 @@ export function fetchEventsSuccess(events) { // receive_posts
         events
     }
 }
+/////////////////
+// CATEGORIES //
+////////////////
+export function fetchCategories() {
+    return dispatch => {
+        return fetch('http://localhost:4000/categories', {
+            headers: authHeader()
+        })
+        .then(resp => resp.json())
+        .then(categories => {
+            dispatch(fetchCategoriesSuccess(categories))
+        })
+    }
+}
 
+export const FETCH_CATEGORIES_SUCCESS = 'FETCH_CATEGORIES_SUCCESS'
+
+export function fetchCategoriesSuccess(categories) { // receive_posts
+    return {
+        type: FETCH_CATEGORIES_SUCCESS,
+        categories
+    }
+}
+////////////
+// MODAL //
+///////////
 export const TOGGLE_MODAL = 'TOGGLE_MODAL'
 
 export function toggleModal() {
@@ -54,7 +152,9 @@ export function addEvent(event) {
         event
     }
 }
-
+////////////
+// SEARCH //
+////////////
 export const SEARCH_INPUT = 'SEARCH_INPUT'
 
 export function searchInput(value) {

@@ -2,16 +2,17 @@ import React from 'react'
 import {NavLink} from 'react-router-dom'
 import Searchbar from '../components/Searchbar.js'
 
-const Navbar = () => {
+const Navbar = props => {
     return(
         <div>
-        <nav class="navbar" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-    <a class="navbar-item" href="https://bulma.io">
+        <nav className="navbar" role="navigation" aria-label="main navigation">
+  <div className="navbar-brand">
+    <a className="navbar-item" href="/events">
       <img src={require('/Users/ashley/Queer Community App/Queer Community App Frontend/queer-community-app-frontend/src/Untitled.png')} width="30" height="30" alt = "unicorn logo"/>
+      Queer
     </a>
 
-    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+    <a role="button" className="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
@@ -21,7 +22,9 @@ const Navbar = () => {
       <Searchbar />
   </div>
 
-  <div id="navbarBasicExample" class="navbar-menu">
+  <button className = 'button' onClick = {props.logout}>Log Out</button>
+
+  <div id="navbarBasicExample" className="navbar-menu">
 
     <div className="navbar-end">
         <div className = 'navbar-item'>

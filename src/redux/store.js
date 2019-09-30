@@ -1,7 +1,10 @@
 import {createStore, applyMiddleware, compose} from 'redux'
 import rootReducer from './reducers.js'
 import thunk from 'redux-thunk'
-import {fetchEvents} from './actions.js'
+import {
+    fetchEvents,
+    fetchCategories
+} from './actions.js'
 
 const store = createStore(
     rootReducer,
@@ -12,5 +15,6 @@ const store = createStore(
 )
 
 store.dispatch(fetchEvents())
+store.dispatch(fetchCategories())
 
 export default store

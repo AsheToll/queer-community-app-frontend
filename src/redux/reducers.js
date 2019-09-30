@@ -3,12 +3,15 @@ import {
     FETCH_EVENTS_SUCCESS,
     TOGGLE_MODAL,
     ADD_EVENT,
-    SEARCH_INPUT
+    SEARCH_INPUT,
+    FETCH_CATEGORIES_SUCCESS,
+    FETCH_USERS_SUCCESS
 } from './actions.js'
 
 const initialState = {
     events: [],
-    active: false
+    active: false,
+    categories: []
 }
 
 function eventsReducer(state = initialState.events, action) {
@@ -37,10 +40,18 @@ function searchReducer(state = '', action) {
     return state
 }
 
+function categoriesReducer(state = initialState.categories, action) {
+    if (action.type === FETCH_CATEGORIES_SUCCESS) {
+        return action.categories
+    }
+    return state
+}
+
 const rootReducer = combineReducers({
     events: eventsReducer,
     active: modalReducer,
-    search: searchReducer
+    search: searchReducer,
+    categories: categoriesReducer
 })
 
 export default rootReducer

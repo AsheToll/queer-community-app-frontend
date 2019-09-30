@@ -49,7 +49,7 @@ class Modal extends React.Component {
                     <div className="control">
                         <div className="select">
                         <select>
-                            { this.state.locations ? this.state.locations.map(location => <option ref = {input => formFields.location = input} value = {location.id}>{location.name}</option>)
+                            { this.state.locations ? this.state.locations.map(location => <option key = {location.id} ref = {input => formFields.location = input} value = {location.id}>{location.name}</option>)
                             : null }
                         </select>
                         </div>
