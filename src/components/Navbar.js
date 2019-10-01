@@ -9,7 +9,7 @@ const Navbar = props => {
   <div className="navbar-brand">
     <a className="navbar-item" href="/events">
       <img src={require('/Users/ashley/Queer Community App/Queer Community App Frontend/queer-community-app-frontend/src/Untitled.png')} width="30" height="30" alt = "unicorn logo"/>
-      Queer
+      gayety
     </a>
 
     <a role="button" className="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">

@@ -23,7 +23,7 @@ $pink: #FFF0FC;
 // Update Bulma's global variables
 $family-sans-serif: 'Nunito', sans-serif;
 $family-serif: 'Martel', serif;
-$grey-dark: $blue;
+$grey-dark: #363636;
 $grey-light: $green;
 $primary: $yellow;
 $link: #2A2E45;
@@ -133,6 +133,54 @@ h1 {
   .login-button {
     width: 80px;
   }
+
+/////////////
+// PROFILE //
+////////////
+.hero.is-medium .hero-body {
+    padding-bottom: 2rem;
+    padding-top: 6rem;
+}
+
+.banner {
+  background: url('https://cdn.pixabay.com/photo/2017/04/11/15/55/animals-2222007_960_720.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.image-hero-body {
+  justify-content: center;
+}
+
+img.circular {
+  border-radius: 50%;
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  z-index: 1;
+}
+
+.profile-hero-body {
+  background-color: white;
+}
+
+h1.title.profile-title {
+  margin-bottom: 0rem;
+}
+
+.profile-hero-body-text {
+  justify-content: center;
+  text-align: center;
+}
+
+.city-text {
+  color: #363636;
+}
+
+.profile-friend-button, .profile-chat-button {
+  width: 80px;
+}
 ///////////////
 // SEARCHBAR //
 ///////////////
