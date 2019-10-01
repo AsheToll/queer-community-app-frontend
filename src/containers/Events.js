@@ -5,7 +5,7 @@ import Event from '../components/Event.js'
 class Events extends React.Component {
     
     render() {
-        console.log(this.props)
+        console.log(this.props.events)
         return(
             <div className = 'columns is-multiline'>
                 {
@@ -23,7 +23,6 @@ class Events extends React.Component {
 const mapStateToProps = (state, ownPropz) => {
     return {
         events: state.events.filter(event => {
-            // debugger
             return event.name.toLowerCase().includes(state.search.toLowerCase()) || event.categories.map(c => c.name).includes(ownPropz.filtered)
         })
     }

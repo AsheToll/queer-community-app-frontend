@@ -23,33 +23,47 @@ class Home extends React.Component {
     }
 
     closeModal() {
-        let modal = document.querySelector('.modal')
-        modal.classList.remove('is-active')
+        document.querySelector('.modal').classList.remove('is-active')
     }
 
     createEvent(event) {
+        debugger
         return this.state.events ? 
         this.setState({
             events: this.state.events.concat(event)
         }) : null
     }
 
-    handleFormSubmit(name, image, location, description) {
+    handleFormSubmit(name, image, location, description, category) {
         debugger
-        let event = {name: name, image: image, location_id: location, description: description}
+        let event = {
+                "name": name,
+                "image": image,
+                "location_id": location,
+                "description": description,
+                "categories": category 
+
+        }
+        debugger
         fetch('http://localhost:4000/events', {
                 method: "POST",
-                headers: authHeader(),
+                headers: {
+                    'Authorization': 'Bearer ' + localStorage.getItem('token'),
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
                 body: JSON.stringify({event})
             })
             .then(response => response.json())
             .then(event => {
+                debugger
                 this.createEvent(event)
                 window.location = `/events/${event.id}`
             })
         }
 
         filterOnClick = (event) => {
+            debugger
             console.log(event)
             this.setState({
                 filtered: event
@@ -81,13 +95,14 @@ class Home extends React.Component {
                                         onSave = {this.saveEvent}
                                         onChange = {this.updateEventState}
                                         closeModal = {this.closeModal}
+                                        categories = {this.props.categories}
                                     /> 
                                 }
                             </button>
                         </div>
                     </div>
                 </section>
-                <section className="hero is-small">
+                {/* <section className="hero is-small">
                     <div className="hero-body filter-hero-body">
                         <h1 className = 'title filter-events-title'>Filter Events by Category</h1>
                         <div className="container filter-container">
@@ -97,7 +112,7 @@ class Home extends React.Component {
                             />
                         </div>
                     </div>
-                </section>
+                </section> */}
                 <div className = 'container events-container'>
                     <Events
                         filtered = {this.state.filtered}

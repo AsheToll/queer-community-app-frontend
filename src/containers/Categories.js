@@ -2,7 +2,6 @@ import React from 'react'
 import Category from '../components/Category.js'
 
 const Categories = props => {
-    debugger
     return (
         <div className = 'columns is-multiline'>
             {

@@ -6,7 +6,7 @@
 
 // Set your brand colors
 $peach: #FEECE7;
-$blue: #99E0FF;
+$blue: #97C8DC; //#89C9E5; // #99E0FF
 $yellow: #FFFBE1;
 $green: #EBF5E2;
 $grey: #F5F7FB;
@@ -24,11 +24,12 @@ $pink: #FFF0FC;
 $family-sans-serif: 'Nunito', sans-serif;
 $family-serif: 'Martel', serif;
 $grey-dark: #363636;
-$grey-light: $green;
+$grey-light: $blue;
 $primary: $yellow;
 $link: #2A2E45;
 $widescreen-enabled: false;
 $fullhd-enabled: false;
+$is-success: #89C9E5;
 
 // Update some of Bulma's component variables
 $body-background-color: $grey;
@@ -231,20 +232,41 @@ h1.title.profile-title {
   }
 
   .create-event-button, .button.is-success {
-    background-color: lightgreen;
+    background-color: $blue;
     padding: 10px 10px 35px 10px;
     color: white;
-    border-color: lightgreen;
+    border-color: $blue;
   }
 ///////////////////////
 // JK, ACTUAL MODAL //
 /////////////////////
 .modal-card-head, .modal-card-foot {
-  background-color: $grey;
+  background-color: whitesmoke;
 }
 
 .modal-card-title, .label {
   color: #2A2E45;
+}
+
+.modal-fields {
+  width: 80%;
+  display: block;
+  margin: 0 auto;
+}
+
+.select {
+  display: block;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.textarea {
+  min-width: 80%;
+  max-width: 100%;
+}
+
+.modal-cancel-button {
+  width: 110px;
 }
 
   .is-small {
@@ -288,17 +310,47 @@ h1.title.profile-title {
   
   .event-card-image img {
     border-radius: 2% 2% 0 0;
+    height: 150px;
+    width: 250px;
   }
   
   .event-card-content {
     background-color: white;
-    padding: 20px;
-    padding-left: 30px;
+    padding: 0;
     border-radius: 0 0 2% 2%;
+    height: 100%;
+    // border-bottom: 3px solid;
+    position: relative;
+    --lh: 1.4rem;
+    line-height: var(--lh);
+  }
+
+  .event-card-tags {
+    color: #363636;
+    padding: 0 10px;
+  }
+
+  .event-card-description {
+    margin-bottom: 20px;
+    --max-lines: 3;
+    max-height: calc(var(--lh) * var(--max-lines));
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .event-card-details {
+    color: $blue;
+    padding-left: 10px;
+  }
+
+  .subtitle {
+    margin: 1rem 0;
+    padding: 0 10px;
   }
   
   .event-card-content p {
-    margin-bottom: 0px;
+    margin-bottom: 10px;
+    padding: 0 10px;
   }
   
   // div.column.event-card-content-left {
@@ -316,13 +368,29 @@ h1.title.profile-title {
     display: inline-block;
     padding: 10px 0;
   }
+
+  .events-hr {
+    margin: 20px 0 0 0;
+    background-color: $blue;
+    width: 100%;
+    height: 4px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
   
   /* Event Details */
   .styling-box {
-    border: 1px solid grey;
+    // border: 1px solid grey;
     padding: 60px;
+  }
+
+  .event-detail-image img {
+    border-radius: 2px;
+    margin-bottom: 40px;
   }
   
   .event-detail-description {
-    padding: 50px;
+    margin: 1.5em 0;
+    padding: 0 10px 0 0;
   }

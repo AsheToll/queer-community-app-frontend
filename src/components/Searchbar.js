@@ -5,15 +5,17 @@ import {searchInput} from '../redux/actions.js'
 const Searchbar = props => {
     return(
             <div className="field is-grouped searchbar">
-                <input
-                    className = 'input'
-                    type = 'text'
-                    placeholder = 'Find an Event'
-                    onChange = {event => props.onChange(event.target.value)}
-                />
-                <a className="button is-info">
-                Search
-                </a>
+                <div className = 'control has-icons-right'>
+                    <input
+                        className = 'input'
+                        type = 'text'
+                        placeholder = 'Find an Event'
+                        onChange = {event => props.onChange(event.target.value)}
+                    />
+                    <span className="icon is-small is-right">
+                        <i className="fas fa-search"></i>
+                    </span>
+                </div>
             </div>
     )
 }

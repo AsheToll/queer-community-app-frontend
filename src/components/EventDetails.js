@@ -13,7 +13,7 @@ class EventDetails extends React.Component {
     }
 
     render() {
-        console.log(this.props.event)
+        console.log('printing', this.props.event)
         return(
             <React.Fragment>
                 <Navbar />
@@ -22,18 +22,30 @@ class EventDetails extends React.Component {
                         <div className = 'column is-two-thirds event-detail-image styling-box'>
                             <img src = {this.props.event ? this.props.event.image : null} />
                         </div>
-                        <div className = 'column event-detail-map styling-box'>Event Map</div>
-                    </div>
-                    <div className = 'columns'>
-                        <div className = 'column is-two-thirds event-detail-description styling-box'>
-                            {this.props.event ? this.props.event.description : null}
-                        </div>
-                        <div className = 'column event-detail-attendees styling-box'>
+                        <div className = 'column event-detail-map styling-box'>
+                            <h1 className = 'title'>
+                                {this.props.event ? this.props.event.name : null}
+                            </h1>
+                            <div>
+                                <h3 className = 'subtitle event-detail-description'>
+                                    {this.props.event ? this.props.event.description : null}
+                                </h3>
+                            </div>
+                            Event Map
+                            <br />
                             Other people going:
                             {this.props.event ? this.props.event.attendees.map(attendee => <p>{attendee.name}</p>) : null}
                         </div>
                     </div>
+                    <div className = 'columns'>
+                        <div className = 'column is-two-thirds event-detail-description styling-box'>
                     <button className = 'button is-danger' onClick = {() => {this.deleteEvent(this.props.event.id)}}>Delete Event</button>
+                        </div>
+                        <div className = 'column event-detail-attendees styling-box'>
+                        </div>
+                    </div>
+                    <hr/>
+                    Other Events in this Category
                 </div>
             </React.Fragment>
         )

@@ -45,18 +45,18 @@ class Login extends React.Component {
         return(
             <div className = 'login-container'>
                 <div className = ' columns login-card'>
-                    <div className = 'column is-half login-left-column'>
+                    <div className = 'column is-8 login-left-column'>
                         <div className = 'logo'>
                             <img src = {require('/Users/ashley/Queer Community App/Queer Community App Frontend/queer-community-app-frontend/src/Unicorn Logo.png')} alt = 'unicorn logo' />
                             <h1 className = 'title'>gayety</h1>
                             {/* Gayety (Gaiety) */}
                         </div>
-                        <form
+                        <form className = 'container'
                             onSubmit = {this.login}
                         >
                             <fieldset>
-                                <label htmlFor = 'usernameField'>Username</label>
-                                <input
+                                <div className = 'container input-container'>
+                                    <input
                                     className = 'input login-input'
                                     type = 'text'
                                     placeholder = 'Username'
@@ -66,7 +66,6 @@ class Login extends React.Component {
                                     value = {this.state.username}
                                 />
                                 <br />
-                                <label htmlFor = 'passwordField'>Password</label>
                                 <input
                                     className = 'input login-input'
                                     type = 'password'
@@ -77,6 +76,7 @@ class Login extends React.Component {
                                     value = {this.state.password}
                                 />
                                 <br />
+                                </div>
                                 <div className = 'buttons'>
                                     <input className = 'button login-button' type = 'submit' value = 'Login' onClick = {this.login} />
                                     <input className = 'button signup-button' type = 'submit' value = 'Sign Up' />
@@ -84,7 +84,7 @@ class Login extends React.Component {
                             </fieldset>
                         </form>
                     </div>
-                    <div className = 'column login-right-column'>
+                    <div className = 'column is-5 login-right-column'>
                         <div className = 'overlay'>
                             <div className = 'text-block'>
                                 <h1 className = 'title'>gayety <em className = 'is-size-6'><span>noun</span></em></h1>
