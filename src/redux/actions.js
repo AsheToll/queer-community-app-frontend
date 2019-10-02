@@ -50,7 +50,6 @@ export function login(username, password) {
         })
         .then(resp => resp.json())
         .then(user => {
-            debugger
             localStorage.setItem('user', JSON.stringify(user))
 
             return user
@@ -89,6 +88,52 @@ export function fetchEventsSuccess(events) { // receive_posts
         events
     }
 }
+
+////////////////////////////////
+// EVENT ATTENDEES & CREATORS //
+////////////////////////////////
+export function fetchEventCreators() {
+    return dispatch => {
+        return fetch('http://localhost:4000/event_creators', {
+            headers: authHeader()
+        })
+        .then(resp => resp.json())
+        .then(event_creators => {
+            dispatch(fetchEventCreatorsSuccess(event_creators))
+        })
+    }
+}
+
+export const FETCH_EVENT_CREATORS_SUCCESS = 'FETCH_EVENT_CREATORS_SUCCESS'
+
+export function fetchEventCreatorsSuccess(event_creators) { // receive_posts
+    return {
+        type: FETCH_EVENT_CREATORS_SUCCESS,
+        event_creators
+    }
+}
+
+export function fetchEventAttendees() {
+    return dispatch => {
+        return fetch('http://localhost:4000/event_attendees', {
+            headers: authHeader()
+        })
+        .then(resp => resp.json())
+        .then(event_attendees => {
+            dispatch(fetchEventAttendeesSuccess(event_attendees))
+        })
+    }
+}
+
+export const FETCH_EVENT_ATTENDEES_SUCCESS = 'FETCH_EVENT_ATTENDEES_SUCCESS'
+
+export function fetchEventAttendeesSuccess(event_attendees) { // receive_posts
+    return {
+        type: FETCH_EVENT_ATTENDEES_SUCCESS,
+        event_attendees
+    }
+}
+
 /////////////////
 // CATEGORIES //
 ////////////////

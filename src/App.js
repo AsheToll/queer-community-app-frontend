@@ -24,7 +24,7 @@ class App extends React.Component {
     if (localStorage.getItem('token')) {
       fetch('http://localhost:4000/profile', {
         headers: {
-          "Authentication" : `Bearer ${localStorage.getItem('token')}`
+          "Authorization" : `Bearer ${localStorage.getItem('token')}`
         }
       })
       .then(resp => resp.json())
@@ -43,11 +43,13 @@ class App extends React.Component {
             <Redirect to = '/profile' /> : 
             <Login updateUser = {this.updateUser} />
           }} />
-          <Route exact path = '/profile' render = {() => this.state.user ? <Profile {...this.state.user} /> : 
-          <Redirect to = '/login' />
+          <Route exact path = '/profile' render = {() => {
+            return this.state.user ? <Profile {...this.state.user} /> : 
+            <Redirect to = '/login' />
+          }
           }/>
           <Route exact path = '/events' component = {Home} />
-          <Route exact path = '/profile' component = {Profile} />
+          {/* <Route exact path = '/profile' component = {Profile} /> */}
           <Route exact path = {`/events/:eventId`} component = {EventDetails}/>
         </Switch>
       </div>

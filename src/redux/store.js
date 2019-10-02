@@ -3,7 +3,9 @@ import rootReducer from './reducers.js'
 import thunk from 'redux-thunk'
 import {
     fetchEvents,
-    fetchCategories
+    fetchCategories,
+    fetchEventAttendees,
+    fetchEventCreators
 } from './actions.js'
 
 const store = createStore(
@@ -16,5 +18,7 @@ const store = createStore(
 
 store.dispatch(fetchEvents())
 store.dispatch(fetchCategories())
+store.dispatch(fetchEventAttendees())
+store.dispatch(fetchEventCreators())
 
 export default store

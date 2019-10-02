@@ -31,22 +31,22 @@ class EventDetails extends React.Component {
                                     {this.props.event ? this.props.event.description : null}
                                 </h3>
                             </div>
-                            Event Map
+                            Date
+                            Time
+                            Location (map)
                             <br />
                             Other people going:
                             {this.props.event ? this.props.event.attendees.map(attendee => <p>{attendee.name}</p>) : null}
                         </div>
                     </div>
-                    <div className = 'columns'>
-                        <div className = 'column is-two-thirds event-detail-description styling-box'>
                     <button className = 'button is-danger' onClick = {() => {this.deleteEvent(this.props.event.id)}}>Delete Event</button>
-                        </div>
-                        <div className = 'column event-detail-attendees styling-box'>
-                        </div>
-                    </div>
                     <hr/>
-                    Other Events in this Category
                 </div>
+                <section className = 'hero is-large event-details-more-events'>
+                    <div className = 'hero-body'>
+                        <h1 className = 'title'>Similar Events You May Be Interested In</h1>
+                    </div>
+                </section>
             </React.Fragment>
         )
     }

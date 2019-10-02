@@ -33,7 +33,6 @@ class Login extends React.Component {
         })
             .then(resp => resp.json())
             .then(data => {
-                debugger
                 if (data.authenticated) {
                     localStorage.setItem('token', data.token)
                     this.props.updateUser(data.user)
@@ -45,7 +44,7 @@ class Login extends React.Component {
         return(
             <div className = 'login-container'>
                 <div className = ' columns login-card'>
-                    <div className = 'column is-8 login-left-column'>
+                    <div className = 'column is-7 login-left-column'>
                         <div className = 'logo'>
                             <img src = {require('/Users/ashley/Queer Community App/Queer Community App Frontend/queer-community-app-frontend/src/Unicorn Logo.png')} alt = 'unicorn logo' />
                             <h1 className = 'title'>gayety</h1>

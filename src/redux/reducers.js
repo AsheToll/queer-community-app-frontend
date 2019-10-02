@@ -5,13 +5,17 @@ import {
     ADD_EVENT,
     SEARCH_INPUT,
     FETCH_CATEGORIES_SUCCESS,
-    FETCH_USERS_SUCCESS
+    FETCH_USERS_SUCCESS,
+    FETCH_EVENT_ATTENDEES_SUCCESS,
+    FETCH_EVENT_CREATORS_SUCCESS
 } from './actions.js'
 
 const initialState = {
     events: [],
     active: false,
-    categories: []
+    categories: [],
+    eventAttendees: [],
+    eventCreators: []
 }
 
 function eventsReducer(state = initialState.events, action) {
@@ -22,6 +26,20 @@ function eventsReducer(state = initialState.events, action) {
             ...state.filter(event => event.id !== action.event.id),
             action.event
         ]
+    }
+    return state
+}
+
+function eventAttendeesReducer(state = initialState.eventAttendees, action) {
+    if (action.type === FETCH_EVENT_ATTENDEES_SUCCESS) {
+        return action.event_attendees
+    }
+    return state
+}
+
+function eventCreatorsReducer(state = initialState.eventCreators, action) {
+    if (action.type === FETCH_EVENT_CREATORS_SUCCESS) {
+        return action.event_creators
     }
     return state
 }
@@ -51,7 +69,9 @@ const rootReducer = combineReducers({
     events: eventsReducer,
     active: modalReducer,
     search: searchReducer,
-    categories: categoriesReducer
+    categories: categoriesReducer,
+    eventCreators: eventCreatorsReducer,
+    eventAttendees: eventAttendeesReducer
 })
 
 export default rootReducer
