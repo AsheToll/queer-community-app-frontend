@@ -5,6 +5,7 @@ import Events from './Events.js'
 import Categories from './Categories.js'
 import {connect} from 'react-redux'
 import {authHeader} from '../_helpers/auth-header.js'
+import Searchbar from '../components/Searchbar.js'
 
 class Home extends React.Component {
     constructor() {
@@ -34,14 +35,16 @@ class Home extends React.Component {
         }) : null
     }
 
-    handleFormSubmit(name, image, location, description, category) {
+    handleFormSubmit(name, image, location, description, category, date, time) {
         debugger
         let event = {
                 "name": name,
                 "image": image,
                 "location_id": location,
                 "description": description,
-                "categories": category 
+                "categories": category,
+                "date": date,
+                "time": time
 
         }
         debugger
@@ -113,6 +116,10 @@ class Home extends React.Component {
                         </div>
                     </div>
                 </section> */}
+                <div className = 'container searchbar-container'>
+                    <Searchbar />
+                </div>
+                <h1 className = 'title events-title'>Events</h1>
                 <div className = 'container events-container'>
                     <Events
                         filtered = {this.state.filtered}

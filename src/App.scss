@@ -59,6 +59,13 @@ h1 {
   padding: 10px 10px 35px 10px;
 }
 
+////////////////
+// NAVIGATION //
+////////////////
+.nav-coming-soon {
+  color: $blue;
+}
+
 ///////////
 // LOGIN //
 ///////////
@@ -129,6 +136,8 @@ h1 {
 
   .definition {
     font-family: $family-serif;
+    display: block;
+    padding-bottom: 20px;
   }
 
   .login-input {
@@ -228,6 +237,8 @@ div.level-item.has-text-centered div.event-card.column.is-3.event-created {
   }
 
   .searchbar input {
+    display: block;
+    margin: 0 auto;
     height: 40px;
     width: 400px;
     border-top-right-radius: 0px;
@@ -335,6 +346,11 @@ div.level-item.has-text-centered div.event-card.column.is-3.event-created {
   .category .box {
     background-color: $blue;
   }
+
+  .events-title {
+    text-align: center;
+    padding-top: 20px;
+  }
   
   .events-container {
     display: flex;
@@ -362,7 +378,20 @@ div.level-item.has-text-centered div.event-card.column.is-3.event-created {
 
   .event-card-tags {
     color: #363636;
+  }
+  
+  .event-card-tags p {
+    display: inline-block;
+    margin-bottom: 0 !important;
+  }
+
+  .event-name {
+    margin-bottom: 16px !important;
+  }
+
+  .event-location {
     padding: 0 10px;
+    color: #363636;
   }
 
   .event-card-description {
@@ -423,6 +452,8 @@ div.level-item.has-text-centered div.event-card.column.is-3.event-created {
   .event-detail-image img {
     border-radius: 2px;
     margin-bottom: 40px;
+    padding-right: 0px;
+    width: 100%;
   }
   
   .event-detail-description {

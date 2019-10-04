@@ -1,6 +1,5 @@
 import React from 'react'
 import {NavLink} from 'react-router-dom'
-import Searchbar from '../components/Searchbar.js'
 
 const Navbar = props => {
     return(
@@ -18,9 +17,6 @@ const Navbar = props => {
       <span aria-hidden="true"></span>
     </a>
   </div>
-  <div className = 'container searchbar-container'>
-      <Searchbar />
-  </div>
 
   <button className = 'button' onClick = {props.logout}>Log Out</button>
 
@@ -28,20 +24,23 @@ const Navbar = props => {
 
     <div className="navbar-end">
         <div className = 'navbar-item'>
+            <NavLink className = 'navbar-item' to = "/profile">
+                <p>Profile</p>
+            </NavLink>
             <NavLink className = 'navbar-item' to = "/events">
                 <p>Events</p>
             </NavLink>
             <NavLink className = 'navbar-item' to = "/calendar">
                 <p>Calendar</p>
-            </NavLink>
-            <NavLink className = 'navbar-item' to = "/profile">
-                <p>Profile</p>
+                <p className = 'is-size-7 nav-coming-soon'>Coming Soon</p>
             </NavLink>
             <NavLink className = 'navbar-item' to = "/chat">
                 <p>Chat</p>
+                <p className = 'is-size-7 nav-coming-soon'>Coming Soon</p>
             </NavLink>
             <NavLink className = 'navbar-item' to = "/safespaces">
                 <p>Safe Spaces</p>
+                <p className = 'is-size-7 nav-coming-soon'>Coming Soon</p>
             </NavLink>
         </div>
     </div>

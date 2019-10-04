@@ -1,6 +1,8 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import Navbar from './Navbar.js'
+import moment from 'moment'
+// import Map from './Map.js'
 
 class EventDetails extends React.Component {
 
@@ -11,7 +13,7 @@ class EventDetails extends React.Component {
         })
         .then(window.location = '/events')
     }
-
+    
     render() {
         console.log('printing', this.props.event)
         return(
@@ -31,9 +33,11 @@ class EventDetails extends React.Component {
                                     {this.props.event ? this.props.event.description : null}
                                 </h3>
                             </div>
-                            Date
-                            Time
+                            {this.props.event ? moment(this.props.event.date).format('MMMM Do YYYY') : null}
+                            {this.props.event ? moment(this.props.event.time).format('LT') : null}
                             Location (map)
+                            {this.props.event ? this.props.event.address : null}
+                            {/* <Map /> */}
                             <br />
                             Other people going:
                             {this.props.event ? this.props.event.attendees.map(attendee => <p>{attendee.name}</p>) : null}
@@ -42,17 +46,18 @@ class EventDetails extends React.Component {
                     <button className = 'button is-danger' onClick = {() => {this.deleteEvent(this.props.event.id)}}>Delete Event</button>
                     <hr/>
                 </div>
-                <section className = 'hero is-large event-details-more-events'>
+                {/* <section className = 'hero is-large event-details-more-events'>
                     <div className = 'hero-body'>
                         <h1 className = 'title'>Similar Events You May Be Interested In</h1>
                     </div>
-                </section>
+                </section> */}
             </React.Fragment>
         )
     }
 }
 
 const mapStateToProps = (state, ownProps) => {
+    debugger
     const eventId = parseInt(ownProps.match.params.eventId)
     return {
         event: state.events ? state.events.find(event => event.id === eventId) : null

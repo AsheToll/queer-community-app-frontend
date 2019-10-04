@@ -90,10 +90,10 @@ class Login extends React.Component {
                                 <span>gay·ety</span>
                                 <br />
                                 <em className = 'definition is-size-7'>the state or quality of being lighthearted or cheerful.</em>
-                                <h3 className = 'is-size-6'>1: <span className = 'is-size-6'>MERRYMAKING</span></h3>
-                                also : festive activity —often used in plural
-                                <h3>2: high spirits : <span>MERRIMENT</span></h3>
-                                <h3 className = 'is-size-6'>3: <span>ELEGANCE, FINERY</span></h3>
+                                <h3 className = 'is-size-7'><strong>1</strong> <span className = 'is-size-6'>MERRYMAKING</span></h3>
+                                <span style = {{fontSize: 14, color: '#363636'}}>also : festive activity —often used in plural</span>
+                                <h3><strong>2</strong> <span style = {{fontSize: 14, color: '#363636'}}>high spirits :</span> <span>MERRIMENT</span></h3>
+                                <h3 className = 'is-size-6'><strong>3</strong> <span>ELEGANCE, FINERY</span></h3>
                             </div>
                         </div>
                     </div>

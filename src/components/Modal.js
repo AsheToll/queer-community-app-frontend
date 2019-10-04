@@ -1,4 +1,7 @@
 import React from 'react'
+import DatePicker from 'react-date-picker'
+import TimePicker from 'react-time-picker'
+
 class Modal extends React.Component {
     constructor(props) {
         super(props)
@@ -8,7 +11,12 @@ class Modal extends React.Component {
             image: '',
             location: '',
             description: '',
-            categories: []
+            categories: [],
+            date: new Date(),
+            time: '',
+            address: {
+                
+            }
         }
     }
 
@@ -27,6 +35,9 @@ class Modal extends React.Component {
             [event.target.name]: event.target.value
         })
     }
+
+    onChangeDate = date => this.setState({date})
+    onChangeTime = time => this.setState({time})
 
     handleOptions = (event) => {
         this.setState({
@@ -75,6 +86,21 @@ class Modal extends React.Component {
                             value = {this.state.image}
                         />
                     </div>
+                    </div>
+
+                    <div className="field">
+                    <label className="label">When</label>
+                        <DatePicker
+                            name = 'date'
+                            onChange = {this.onChangeDate}
+                            value = {this.state.date}
+                        />
+
+                        <TimePicker
+                            name = 'time'
+                            onChange = {this.onChangeTime}
+                            value = {this.state.time}
+                        />
                     </div>
 
                     <div className="field">
@@ -131,7 +157,7 @@ class Modal extends React.Component {
 
                 </form>
                 <footer className="modal-card-foot buttons">
-                    <button className="button is-success" onClick = {() => this.props.handleFormSubmit(this.state.name, this.state.image, parseInt(formFields.location.value), this.state.description, this.state.categories)}>Create Event</button>
+                    <button className="button is-success" onClick = {() => this.props.handleFormSubmit(this.state.name, this.state.image, parseInt(formFields.location.value), this.state.description, this.state.categories, this.state.date, this.state.time)}>Create Event</button>
                     <button className="button modal-cancel-button" onClick = {() => this.props.closeModal()}>Cancel</button>
                 </footer>
             </div>

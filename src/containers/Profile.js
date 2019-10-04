@@ -5,6 +5,7 @@ import Event from '../components/Event.js'
 
 class Profile extends React.Component {
     render() {
+        
         return(
             <div>
                 <Navbar />
@@ -41,14 +42,14 @@ class Profile extends React.Component {
       </div>
     
       {/* <!-- Right side --> */}
-      <div className="level-right buttons">
+      {/* <div className="level-right buttons">
         <button className = 'button profile-friend-button'>
             Friend
         </button>
         <button className = 'button profile-chat-button'>
             Chat
         </button>
-      </div>
+      </div> */}
     </nav>
                     </div>
                 </section>
@@ -64,7 +65,10 @@ class Profile extends React.Component {
                     Events I've Hosted
                     <nav class="level">
                     {
-                            this.props.eventCreators ? this.props.eventCreators.map(event => {
+                            this.props.events ? this.props.events.filter(event => {event.creator_id = this.props.id}).
+                            
+                            
+                            map(event => {
                                 return <div class="level-item has-text-centered event-created">
                                     <Event key = {event.id} event = {event} />
                                 </div>})
